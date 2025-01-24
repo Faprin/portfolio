@@ -1,26 +1,26 @@
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
-	</style>
+  @import url("https://fonts.googleapis.com/css2?family=Birthstone&display=swap");
+</style>
 
-<nav class="text-[#493628] fixed top-0 left-0 w-full z-50 bg-[#E4E0E1]">
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#E4E0E1] shadow-md">
   <div class="container mx-auto flex items-center justify-around p-4">
-    <a href="#" class="text-[40px] font-bold font-['Birthstone']">Faprin</a>
+    <a href="#home" class="text-[40px] font-bold font-['Birthstone']">Faprin</a>
 
     <div class="flex items-center gap-14">
       <a
-        href="#"
+        href="#home"
         class="hover:scale-110 transform transition duration-200 ease-in-out"
         >Inicio</a
+      >
+      <a
+        href="#about"
+        class="hover:scale-110 transform transition duration-200 ease-in-out"
+        >¿Quién soy?</a
       >
       <a
         href="#"
         class="hover:scale-110 transform transition duration-200 ease-in-out"
         >Proyectos</a
-      >
-      <a
-        href="#"
-        class="hover:scale-110 transform transition duration-200 ease-in-out"
-        >Sobre mi</a
       >
       <a
         href="#"
@@ -31,23 +31,59 @@
   </div>
 </nav>
 
-<main class="mt-20">
+<main class="max-w-[60%] mx-auto">
+  <section id="home" class="h-screen flex justify-center items-center">
+    <div class="grid grid-cols-2 h-[240px]">
+      <!-- TEXTO REACTIVO -->
+      <div class="h-full mr-10 flex justify-end gap-10">
+        <h3 id="nombre" class="text-6xl font-bold text-right">
+          Jose Manuel<br /> Domínguez <br /> Segura
+        </h3>
+        <div class="bg-[#493628] w-1 h-full"></div>
+      </div>
 
-  <div class="flex justify-end pr-80 pt-[170px]">
-    <h3 id="nombre" class="text-[#493628] text-6xl font-bold text-right">
-      Jose Manuel<br /> Domínguez <br /> Segura
-    </h3>
-  </div>
+      <!-- TEXTO DE BIENVENIDA -->
+      <div class="">
+        <div class="flex justify-between items-center text-3xl">
+          <div class="flex gap-2 items-center">
+            <h4 class="font-bold italic">¡Hola!</h4>
+            <span class="icon-[line-md--emoji-smile-wink]"></span>
+          </div>
 
-  <div class="flex ">
-	<h4 class="text-[#493628] text-3xl font-bold italic">Hola!</h4>
-	<p>
+          <div class="flex gap-2 items-center">
+            <a
+              href="https://github.com/Faprin"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon-[line-md--github-loop]"></span></a
+            >
+            <a
+              href="https://www.linkedin.com/in/jose-manuel-dom%C3%ADnguez-segura-9b779b312/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="icon-[line-md--linkedin]"></span>
+            </a>
+          </div>
+        </div>
+        <br />
+        <p>
+          ¡Bienvenido a mi portfolio! Soy estudiante de Ingeniería Informática,
+          especializándome en software backend. Aquí muestro proyectos que
+          reflejan mi pasión por desarrollar sistemas eficientes, escalables y
+          de calidad. Explora mi trabajo y descubre cómo abordo retos
+          tecnológicos. 
+        </p>
+      </div>
+    </div>
+  </section>
 
-	</p>
-  </div>
-
+  <!-- QUIÉN SOY -->
+  <section id="about" class="h-screen flex justify-center items-center">
+    <div class="grid grid-cols-2 h-[240px]"></div>
+  </section>
 </main>
-
 
 <script>
   const nombre = document.getElementById("nombre");
@@ -77,28 +113,27 @@
             // mientras que la letra que quiero escribir sea menor al largo de la palabra
             nombre.innerHTML += words[wordIndex][letterIndex]; // imprimo la letra
             letterIndex++; // aumento la letra
-			setTimeout(printLetter, 100);
+            setTimeout(printLetter, 100);
           } else {
             // añado un salto de linea
             nombre.innerHTML += "<br>";
 
-            wordIndex++; 
-            letterIndex = 0; 
+            wordIndex++;
+            letterIndex = 0;
 
             if (wordIndex < words.length) {
               setTimeout(printLetter, 100);
             } else {
-				// acabo una palabra
-				index = (index + 1) % nombres.length;
-				setTimeout(changeName, 1500);
-              }
+              // acabo una palabra
+              index = (index + 1) % nombres.length;
+              setTimeout(changeName, 1500);
             }
           }
         }
-		printLetter();
       }
+      printLetter();
     }
-  
+  }
 
   changeName();
 </script>
