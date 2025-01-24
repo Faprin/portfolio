@@ -1,18 +1,104 @@
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
+	</style>
+
 <nav class="text-[#493628] fixed top-0 left-0 w-full z-50 bg-[#E4E0E1]">
   <div class="container mx-auto flex items-center justify-around p-4">
+    <a href="#" class="text-[40px] font-bold font-['Birthstone']">Faprin</a>
 
-    <a href="#" class="text-[1.8rem] font-bold">Faprin</a>
-
-	<div class="flex items-center gap-14">
-		<a href="#" class="hover:scale-110  transform transition duration-200 ease-in-out">Inicio</a>
-		<a href="#" class="hover:scale-110 transform transition duration-200 ease-in-out">Proyectos</a>
-		<a href="#" class="hover:scale-110 transform transition duration-200 ease-in-out">Sobre mi</a>
-		<a href="#" class="hover:scale-110 transform transition duration-200 ease-in-out">Contacto</a>	
-	</div>
-    
+    <div class="flex items-center gap-14">
+      <a
+        href="#"
+        class="hover:scale-110 transform transition duration-200 ease-in-out"
+        >Inicio</a
+      >
+      <a
+        href="#"
+        class="hover:scale-110 transform transition duration-200 ease-in-out"
+        >Proyectos</a
+      >
+      <a
+        href="#"
+        class="hover:scale-110 transform transition duration-200 ease-in-out"
+        >Sobre mi</a
+      >
+      <a
+        href="#"
+        class="hover:scale-110 transform transition duration-200 ease-in-out"
+        >Contacto</a
+      >
+    </div>
   </div>
 </nav>
 
-<main class= "mt-20">
-	
-	</main>
+<main class="mt-20">
+
+  <div class="flex justify-end pr-80 pt-[170px]">
+    <h3 id="nombre" class="text-[#493628] text-6xl font-bold text-right">
+      Jose Manuel<br /> Domínguez <br /> Segura
+    </h3>
+  </div>
+
+  <div class="flex ">
+	<h4 class="text-[#493628] text-3xl font-bold italic">Hola!</h4>
+	<p>
+
+	</p>
+  </div>
+
+</main>
+
+
+<script>
+  const nombre = document.getElementById("nombre");
+
+  const nombres = [
+    "Jose Manuel Domínguez Segura",
+    "Ingeniero De Software",
+    "Desarrollador Full Stack",
+  ];
+
+  let index = 0; // Índice inicial para el array de nombres
+
+  function changeName() {
+    if (nombre != null) {
+      nombre.innerHTML = "";
+
+      const currentName = nombres[index];
+      const words = currentName.split(" ");
+
+      let letterIndex = 0;
+      let wordIndex = 0;
+
+      function printLetter() {
+        if (nombre != null) {
+          // mientras que no haya terminado una palabra, imprimo sus letras
+          if (letterIndex < words[wordIndex].length) {
+            // mientras que la letra que quiero escribir sea menor al largo de la palabra
+            nombre.innerHTML += words[wordIndex][letterIndex]; // imprimo la letra
+            letterIndex++; // aumento la letra
+			setTimeout(printLetter, 100);
+          } else {
+            // añado un salto de linea
+            nombre.innerHTML += "<br>";
+
+            wordIndex++; 
+            letterIndex = 0; 
+
+            if (wordIndex < words.length) {
+              setTimeout(printLetter, 100);
+            } else {
+				// acabo una palabra
+				index = (index + 1) % nombres.length;
+				setTimeout(changeName, 1500);
+              }
+            }
+          }
+        }
+		printLetter();
+      }
+    }
+  
+
+  changeName();
+</script>
